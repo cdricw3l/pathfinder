@@ -6,7 +6,7 @@ Les problèmes comme le pathfinding sur grille ont été étudiés pendant longt
 
 ![Alt text](shemas/shemas.png)
 
-# Etape N-1
+# Etape 1: génération de l’arbre de recherche à partir de la grille 2D
 
 On remarque que chaque nœud a au maximum deux nœuds parents et deux nœuds enfants. Nous pouvons donc établir cette structure de nœud :
 

@@ -11,6 +11,9 @@ COM="pathfinder"
 ${NAME}: ${SRCS_OBJS}
 	${CC} ${GFLAGS} ${SRCS_OBJS} -o ${NAME}
 
+run: ${NAME}
+	./${NAME}
+
 clean:
 	rm -rf ${SRCS_OBJS}
 

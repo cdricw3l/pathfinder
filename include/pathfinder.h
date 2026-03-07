@@ -1,3 +1,11 @@
+#ifndef PATHFINDER_H
+#define PATHFINDER_H
+
+#include <unistd.h>
+#include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 typedef struct s_node
 {
 	int		value;
@@ -7,3 +15,5 @@ typedef struct s_node
 	void	*children_left;
 
 } t_node;
+
+#endif

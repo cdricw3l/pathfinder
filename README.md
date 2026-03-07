@@ -8,7 +8,7 @@ Les problèmes comme le pathfinding sur grille ont été étudiés pendant longt
 
 # Etape N-1
 
-On remarque que chaque noeud a au maximum deux noeud parent et deux noeud enfant. Nous pouvons donc etablire cette structure de noeud:
+On remarque que chaque nœud a au maximum deux nœuds parents et deux nœuds enfants. Nous pouvons donc établir cette structure de nœud :
 
 ```
 

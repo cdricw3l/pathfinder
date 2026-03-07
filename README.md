@@ -15,6 +15,8 @@ On remarque que chaque nœud a au maximum deux nœuds parents et deux nœuds enf
 typedef struct s_node
 {
 	int		value;
+    int     x;
+    int     y;
 	void	*parent_right;
 	void	*parent_left;
 	void	*children_right;

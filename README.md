@@ -41,9 +41,9 @@ Si la valeur y est supérieure à y_max (nombre de colonnes de notre matrice), a
 
 ## Exemple : pour un nœud de coordonnées (0,0)
 
-children left = (0,1)
-children right = (1,0)
-parent left = (-1,0) : nœud invalide
+children left = (0,1)\
+children right = (1,0)\
+parent left = (-1,0) : nœud invalide\
 parent right = (0,-1) : nœud invalide
 
 Dans le cas du nœud de coordonnées (0,0), le nœud possède deux children valides, mais aucun parent.

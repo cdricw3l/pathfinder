@@ -54,7 +54,7 @@ On peut en déduire qu’un nœud qui n’a aucun parent est le nœud racine (ro
 children left = (3,1)\
 children right = (4,0) : nœud invalide car x > x_max\
 parent left = (2,0)\
-parent right = (3,-1) : nœud invalide car y < 0\
+parent right = (3,-1) : nœud invalide car y < 0
 
 Dans ce cas, le nœud (3,0) possède un seul child à gauche (3,1) et un seul parent à gauche (2,0).
 
@@ -63,7 +63,7 @@ Dans ce cas, le nœud (3,0) possède un seul child à gauche (3,1) et un seul pa
 children left = (1,3)\
 children right = (2,2)\
 parent left = (0,2)\
-parent right = (1,1)\
+parent right = (1,1)
 
 Ici, le nœud de coordonnées (1,2) est complet : il possède deux children et deux parents.
 

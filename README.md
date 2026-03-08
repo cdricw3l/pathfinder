@@ -46,7 +46,7 @@ children right = (1,0)\
 parent left = (-1,0) : nœud invalide\
 parent right = (0,-1) : nœud invalide
 
-Dans le cas du nœud de coordonnées (0,0), le nœud possède deux children valides, mais aucun parent.
+Dans le cas du nœud de coordonnées (0,0), le nœud possède deux children valides, mais aucun parent.\
 On peut en déduire qu’un nœud qui n’a aucun parent est le nœud racine (root) de l’arbre.
 
 ## Exemple : pour un nœud de coordonnées (3,0)

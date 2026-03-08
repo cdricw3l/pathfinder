@@ -26,7 +26,7 @@ typedef struct s_node
 
 ```
 
-![Alt text](shemas/shemas.png)
+![Alt text](shemas/node_link_rules.png)
 
 En observant l’illustration ci-dessus, on remarque que l’on peut établir une règle pour la création de notre arbre de recherche :
 

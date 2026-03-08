@@ -66,3 +66,7 @@ parent left = (0,2)
 parent right = (1,1)
 
 Ici, le nœud de coordonnées (1,2) est complet : il possède deux children et deux parents.
+
+# Other_way
+
+![Alt text](shemas/other_way.png)

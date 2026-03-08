@@ -30,14 +30,14 @@ typedef struct s_node
 
 En observant l’illustration ci-dessus, on remarque que l’on peut établir une règle pour la création de notre arbre de recherche :
 
-le child left est égal au nœud d’index : (x_current_node, y_current_node + 1)
-le child right est égal au nœud d’index : (x_current_node + 1, y_current_node)
-le parent left est égal au nœud d’index : (x_current_node - 1, y_current_node)
-le parent right est égal au nœud d’index : (x_current_node, y_current_node - 1)
+le child left est égal au nœud d’index : (x_current_node, y_current_node + 1)\
+le child right est égal au nœud d’index : (x_current_node + 1, y_current_node)\
+le parent left est égal au nœud d’index : (x_current_node - 1, y_current_node)\
+le parent right est égal au nœud d’index : (x_current_node, y_current_node - 1)\
 
-Si une des valeurs est inférieure à zéro, alors le nœud est invalide.
-Si la valeur x est supérieure à x_max (nombre de lignes de notre matrice), alors le nœud est rejeté.
-Si la valeur y est supérieure à y_max (nombre de colonnes de notre matrice), alors le nœud est rejeté.
+Si une des valeurs est inférieure à zéro, alors le nœud est invalide.\
+Si la valeur x est supérieure à x_max (nombre de lignes de notre matrice), alors le nœud est rejeté.\
+Si la valeur y est supérieure à y_max (nombre de colonnes de notre matrice), alors le nœud est rejeté.\
 
 ## Exemple : pour un nœud de coordonnées (0,0)
 

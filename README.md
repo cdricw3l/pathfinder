@@ -70,3 +70,95 @@ Ici, le nœud de coordonnées (1,2) est complet : il possède deux children et d
 # Other_way
 
 ![Alt text](shemas/other_way.png)
+
+# Tableau d'entier ou matrice 2D
+
+Pour reduire l'impacte en memoire de notre programme , il est possible de representer une matrice 2D sous forme de tableau d'entier.
+
+## cout en memoire:
+
+Pour une matrice 2D ayant x_max = 300 et y_max = 400:
+
+```
+#define X 300
+#define Y 400
+
+void memory_2D_cost(void)
+{
+    int **matrice;
+    int *line;
+
+    matrice = malloc(sizeof(int *));
+    if (!matrice)
+        return ;
+    line  = malloc(sizeof(int));
+    if (!line)
+    {
+        free(matrice);
+        return ;
+    }
+
+    printf("taille Theorique: matrice = (%lu * %d) + (%lu * %d) = %lu\n", sizeof(int *),X, sizeof(int), Y, (sizeof(int *) * X) + (sizeof(int) * Y));
+    printf("taille Reel: matrice = (%ld * %d) +  (%ld * %d) = %ld\n",malloc_size(matrice),X,malloc_size(line), Y ,(malloc_size(matrice) * X) + (malloc_size(line) * Y));
+
+    free(line);
+    free(matrice);
+}
+
+
+```
+Dans le cas d'une matrice en deux dimentions de 300 lignes et 400 colones :\
+
+Le coût theorique est de:	(8 * 300)  +  (4 * 400) =  4000 octets\
+Le coût réel est de: 		(16 * 300) +  (16 * 400) = 11200 octets\
+
+
+1. Pour une matrice 2D ayant x_max = 300 et y_max = 400:
+
+```
+#define X 300
+#define Y 400
+
+void memory_2D_cost(void)
+{
+    int **matrice;
+    int *line;
+
+    matrice = malloc(sizeof(int *));
+    if (!matrice)
+        return ;
+    line  = malloc(sizeof(int));
+    if (!line)
+    {
+        free(matrice);
+        return ;
+    }
+
+    printf("taille Theorique: matrice = (%lu * %d) + (%lu * %d) = %lu\n", sizeof(int *),X, sizeof(int), Y, (sizeof(int *) * X) + (sizeof(int) * Y));
+    printf("taille Reel: matrice = (%ld * %d) +  (%ld * %d) = %ld\n",malloc_size(matrice),X,malloc_size(line), Y ,(malloc_size(matrice) * X) + (malloc_size(line) * Y));
+
+    free(line);
+    free(matrice);
+}
+```
+
+2. Pour une matrice 2D sous forme de tableau d'entier:
+
+```
+#define X 300
+#define Y 400
+
+void memory_1D_cost(void)
+{
+    int *matrice;
+
+    matrice = malloc(sizeof(int));
+    if (!matrice)
+        return ;
+
+    printf("taille Theorique: matrice = %lu * (%d * %d) = %lu", sizeof(int), X, Y, sizeof(int) * (X * Y));
+    printf("taille Reel: matrice  = %lu * (%d * %d) = ", malloc_size(matrice), X, Y, malloc_size(matrice) * (X *Y));
+    free(matrice);
+}
+
+```

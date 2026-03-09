@@ -5,15 +5,35 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <malloc/malloc.h>
 
-typedef struct s_node
+typedef struct s_points
 {
-	int		value;
-	void	*parent_right;
-	void	*parent_left;
-	void	*children_right;
-	void	*children_left;
+	int x;
+	int y;
 
-} t_node;
+} t_points;
+
+
+typedef struct s_node_1
+{
+	int			value;
+	t_points	points;
+	void		*parent_right;
+	void		*parent_left;
+	void		*children_right;
+	void		*children_left;
+
+} t_node_1;
+
+typedef struct s_path_node
+{
+	int					value;
+	t_points			points;
+	struct s_path_node	*n1;
+	struct s_path_node	*n2;
+	struct s_path_node	*n3;
+
+} t_path_node;
 
 #endif

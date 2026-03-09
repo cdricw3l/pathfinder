@@ -57,39 +57,9 @@ int *get_matrice(int x_max, int y_max)
     return (mat);
 }
 
-void memory_2D_cost(void)
-{
-    int **matrice;
-    int *line;
 
-    matrice = malloc(sizeof(int *));
-    if (!matrice)
-        return ;
-    line  = malloc(sizeof(int));
-    if (!line)
-    {
-        free(matrice);
-        return ;
-    }   
-    printf("taille Theorique: matrice = (%lu * %d) + (%lu * %d) = %lu\n", sizeof(int *),X, sizeof(int), Y, (sizeof(int *) * X) + (sizeof(int) * Y));
-    printf("taille Reel: matrice = (%ld * %d) +  (%ld * %d) = %ld\n",malloc_size(matrice),X,malloc_size(line), Y ,(malloc_size(matrice) * X) + (malloc_size(line) * Y));
 
-    free(line);
-    free(matrice);
-}
 
-void memory_1D_cost(void)
-{
-    int *matrice;
-
-    matrice = malloc(sizeof(int));
-    if (!matrice)
-        return ;
-
-    printf("taille Theorique: matrice = %lu * (%d * %d) = %lu\n", sizeof(int), X, Y, sizeof(int) * (X * Y));
-    printf("taille Reel: matrice  = %lu * (%d * %d) = %lu\n", malloc_size(matrice), X, Y, malloc_size(matrice) * (X *Y));
-    free(matrice);
-}
 
 
 int main(void)

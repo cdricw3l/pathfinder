@@ -71,11 +71,11 @@ Ici, le nœud de coordonnées (1,2) est complet : il possède deux children et d
 
 ![Alt text](shemas/other_way.png)
 
-# Tableau d'entier ou matrice 2D
+# Tableau 1D contigu vs Tableau 2D
 
-Pour reduire l'impacte en memoire de notre programme , il est possible de representer une matrice 2D sous forme de tableau d'entier.
+Pour reduire l'impacte en memoire de notre programme, et la performance d'acces au données de la matrice , il est possible de representer une matrice 2D sous forme de tableau contigu.
 
-## cout en memoire:
+## Côut en memoire:
 
 Pour une matrice 2D ayant x_max = 300 et y_max = 400:
 
@@ -109,8 +109,8 @@ void memory_2D_cost(void)
 ```
 Dans le cas d'une matrice en deux dimentions de 300 lignes et 400 colones :\
 
-Le coût theorique est de:	(8 * 300)  +  (4 * 400) =  4000 octets\
-Le coût réel est de: 		(16 * 300) +  (16 * 400) = 11200 octets\
+Cout Theorique: matrice = (8 * 300) + (4 * 400) * 300 = 482400
+Cout Reel: matrice = (16 * 300) +  (16 * 400) * 300 = 1924800
 
 
 1. Pour une matrice 2D ayant x_max = 300 et y_max = 400:
@@ -141,8 +141,10 @@ void memory_2D_cost(void)
     free(matrice);
 }
 ```
+taille Theorique: matrice 	= (8 * 300) + (4 * 400) * 300 	 = 482400 octets\
+taille Reel: matrice 		= (16 * 300) +  (16 * 400) * 300 = 1924800 octets\
 
-2. Pour une matrice 2D sous forme de tableau d'entier:
+2. Pour une matrice 2D sous forme de tableau contigu:
 
 ```
 #define X 300
@@ -156,9 +158,20 @@ void memory_1D_cost(void)
     if (!matrice)
         return ;
 
-    printf("taille Theorique: matrice = %lu * (%d * %d) = %lu", sizeof(int), X, Y, sizeof(int) * (X * Y));
-    printf("taille Reel: matrice  = %lu * (%d * %d) = ", malloc_size(matrice), X, Y, malloc_size(matrice) * (X *Y));
+    printf("taille Theorique: matrice = %lu * (%d * %d) = %lu\n", sizeof(int), X, Y, sizeof(int) * (X * Y));
+    printf("taille Reel: matrice  = %lu * (%d * %d) = %lu\n", malloc_size(matrice), X, Y, malloc_size(matrice) * (X *Y));
     free(matrice);
 }
 
 ```
+Cout Theorique: tableau contigu = 	4 *  (300 * 400) = 480000 octets \
+Cout Reel: tableau contigu  	= 	16 * (300 * 400) = 1920000	octets\
+
+La difference de cout en memoire reel est de :\
+
+	100 - ((1920000 * 100) / 1924800) ≈ 0.25 %\
+
+Autan que la difference de cout est negligeable. Alors pourquoi utiliser un tableau contigu plutot qu'une matrice 2D.
+
+## Côut en performance
+

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <malloc/malloc.h>
+#include "../cost_and_perf/cost_and_perf.h"
 
 typedef struct s_points
 {

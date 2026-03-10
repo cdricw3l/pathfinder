@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/cdric.b/Documents/42berlin/pathfinder/pathfinder'
-relocations:     []
-...

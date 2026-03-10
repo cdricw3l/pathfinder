@@ -1,22 +1,55 @@
 #include "include/pathfinder.h"
 
-#define X 300
-#define Y 400
+int is_on(t_points *points, size_t idx,int x, int y)
+{
+    size_t i;
 
-t_path_node *get_node(int *mat, int x, int y)
+    i = 0;
+    if (!points)
+        return(0);
+    while (i <= idx)
+    {
+        if(points[i].x == x && points[i].y == y)
+            return (1);
+        
+        i++;
+    }
+    return (0);
+}
+
+t_path_node *get_node(t_points *points, int x, int y, size_t *idx)
 {
     t_path_node *node;
+    t_points p;
 
-    (void)mat;
-    node = malloc(sizeof(node));
+    if (x < 0 || y < 0 || x > X - 1  || y > Y - 1)
+    {
+        return (NULL);
+    }
+    printf("x1: %d, y1: %d, idx: %zu\n",x,y, *idx);
+    if(is_on(points,*idx, x, y))
+    {
+        printf("is on \n");
+        return (NULL);
+    }
+    printf("x3: %d, y3: %d, idx: %zu\n",x,y,* idx);
+    
+    node = malloc(sizeof(t_path_node));
     if(!node)
         return (NULL);
-    node->points.x = x;
-    node->points.y = y;
-    node->n1 = NULL;
-    node->n2 = NULL;
-    node->n3 = NULL;
-    return (node);
+    
+    p.x = x;
+    p.y = y;
+    node->points = p;
+    points[*idx] = node->points;
+    (*idx)++;
+    printf("here\n");
+
+    node->n1 = get_node(points ,node->points.x, node->points.y + 1, idx);
+    node->n2 = get_node(points ,node->points.x + 1, node->points.y, idx);
+    node->n3 = get_node(points ,node->points.x - 1, node->points.y, idx);
+    node->n4 = get_node(points ,node->points.x , node->points.y - 1, idx);
+    return(node);
 }
 
 void    display_matrice(int *mat, int x_max, int y_max)
@@ -40,40 +73,21 @@ void    display_matrice(int *mat, int x_max, int y_max)
     }
 }
 
-int *get_matrice(int x_max, int y_max)
-{
-    int *mat;
-    int i;
-
-    mat = malloc(sizeof(int) * (x_max * y_max));
-    if (!mat)
-        return (NULL);
-    i = 0;
-    while (i < (x_max * y_max))
-    {
-        mat[i] = i;
-        i++;
-    }
-    return (mat);
-}
-
-
-
-
-
 
 int main(void)
 {
-    //int *mat;
-    memory_2D_cost();
-    memory_1D_cost();
 
+    t_points *points;
+    t_path_node *node;
+    size_t idx;
 
-    // mat = get_matrice(X,Y);
-    // if (!mat)
-    //     return (1);
-    // display_matrice(mat,X, Y);
-
-    //free(mat);
+    idx = 0;
+    points = malloc(sizeof(t_points) * (X * Y));
+    if (!points)
+        return(1);
+    points = NULL;
+    node = get_node(points, 1, 2,  &idx);
+    assert(node);
+    free(points);
     return(0);
 }

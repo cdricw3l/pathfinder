@@ -5,8 +5,16 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <malloc/malloc.h>
+
 #include "../cost_and_perf/cost_and_perf.h"
+
+#ifndef X
+    #define X 30000
+#endif
+
+#ifndef Y
+    #define Y 40000
+#endif
 
 typedef struct s_points
 {
@@ -34,6 +42,7 @@ typedef struct s_path_node
 	struct s_path_node	*n1;
 	struct s_path_node	*n2;
 	struct s_path_node	*n3;
+	struct s_path_node	*n4;
 
 } t_path_node;
 

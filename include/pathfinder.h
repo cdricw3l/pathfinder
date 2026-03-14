@@ -1,12 +1,11 @@
 #ifndef PATHFINDER_H
 #define PATHFINDER_H
 
-#include <unistd.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <stdio.h>
+
 
 #include "../cost_and_perf/cost_and_perf.h"
+#include "../srcs/points/points.h"
+#include "../srcs/tree/tree.h"
 
 #ifndef X
     #define X 30000
@@ -16,12 +15,9 @@
     #define Y 40000
 #endif
 
-typedef struct s_points
-{
-	int x;
-	int y;
 
-} t_points;
+#define START	printf("Start fonction %s\n", __func__)
+#define END		printf("End fonction %s\n", __func__)
 
 
 typedef struct s_node_1
@@ -35,15 +31,6 @@ typedef struct s_node_1
 
 } t_node_1;
 
-typedef struct s_path_node
-{
-	int					value;
-	t_points			points;
-	struct s_path_node	*n1;
-	struct s_path_node	*n2;
-	struct s_path_node	*n3;
-	struct s_path_node	*n4;
 
-} t_path_node;
 
 #endif
